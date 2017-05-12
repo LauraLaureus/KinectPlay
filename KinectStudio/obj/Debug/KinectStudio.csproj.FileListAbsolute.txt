@@ -1,0 +1,16 @@
+C:\Users\Laura\Documents\M.A.N.D.A.L.Aproject\CompilingTest\KinectStudio\KinectStudio\bin\Debug\KinectStudio.exe.config
+C:\Users\Laura\Documents\M.A.N.D.A.L.Aproject\CompilingTest\KinectStudio\KinectStudio\bin\Debug\KinectStudio.exe
+C:\Users\Laura\Documents\M.A.N.D.A.L.Aproject\CompilingTest\KinectStudio\KinectStudio\bin\Debug\KinectStudio.pdb
+C:\Users\Laura\Documents\M.A.N.D.A.L.Aproject\CompilingTest\KinectStudio\KinectStudio\bin\Debug\Microsoft.Kinect.Tools.dll
+C:\Users\Laura\Documents\M.A.N.D.A.L.Aproject\CompilingTest\KinectStudio\KinectStudio\bin\Debug\Microsoft.Kinect.Tools.xml
+C:\Users\Laura\Documents\M.A.N.D.A.L.Aproject\CompilingTest\KinectStudio\KinectStudio\obj\Debug\KinectStudio.csprojResolveAssemblyReference.cache
+C:\Users\Laura\Documents\M.A.N.D.A.L.Aproject\CompilingTest\KinectStudio\KinectStudio\obj\Debug\MainWindow.g.cs
+C:\Users\Laura\Documents\M.A.N.D.A.L.Aproject\CompilingTest\KinectStudio\KinectStudio\obj\Debug\App.g.cs
+C:\Users\Laura\Documents\M.A.N.D.A.L.Aproject\CompilingTest\KinectStudio\KinectStudio\obj\Debug\KinectStudio_MarkupCompile.cache
+C:\Users\Laura\Documents\M.A.N.D.A.L.Aproject\CompilingTest\KinectStudio\KinectStudio\obj\Debug\KinectStudio_MarkupCompile.lref
+C:\Users\Laura\Documents\M.A.N.D.A.L.Aproject\CompilingTest\KinectStudio\KinectStudio\obj\Debug\MainWindow.baml
+C:\Users\Laura\Documents\M.A.N.D.A.L.Aproject\CompilingTest\KinectStudio\KinectStudio\obj\Debug\KinectStudio.g.resources
+C:\Users\Laura\Documents\M.A.N.D.A.L.Aproject\CompilingTest\KinectStudio\KinectStudio\obj\Debug\KinectStudio.Properties.Resources.resources
+C:\Users\Laura\Documents\M.A.N.D.A.L.Aproject\CompilingTest\KinectStudio\KinectStudio\obj\Debug\KinectStudio.csproj.GenerateResource.Cache
+C:\Users\Laura\Documents\M.A.N.D.A.L.Aproject\CompilingTest\KinectStudio\KinectStudio\obj\Debug\KinectStudio.exe
+C:\Users\Laura\Documents\M.A.N.D.A.L.Aproject\CompilingTest\KinectStudio\KinectStudio\obj\Debug\KinectStudio.pdb
