@@ -32,8 +32,7 @@ namespace KinectStudio
 
         private void OnClick(object sender, RoutedEventArgs e)
         {
-            //TOOD: obtener el nombre del fichero.
-           
+                      
 
             using (KStudioClient client = KStudio.CreateClient()) {
 
@@ -41,13 +40,14 @@ namespace KinectStudio
 
                 for (int f = 0; f < fileNames.Length; f++) {
 
-                    
 
                     string[] nameAndLoop = fileNames[f].Split(',');
                     KStudioPlayback playback = client.CreatePlayback(nameAndLoop[0]);
                     if (nameAndLoop.Length > 1) {
                         playback.LoopCount = (uint)Double.Parse(nameAndLoop[1]);
                     }
+
+                    this.statusBox.Text = "Playing" + nameAndLoop[0];
 
                     playback.EndBehavior = KStudioPlaybackEndBehavior.Stop;
                     playback.Start();
@@ -66,11 +66,24 @@ namespace KinectStudio
 
         private void loadClick(object sender, RoutedEventArgs e)
         {
-            StreamReader reader = new StreamReader(@"./files.txt", Encoding.UTF8);
-            string file = reader.ReadToEnd();
-            fileNames = file.Split('\n');
-            Console.WriteLine("Load Complete");
-            fileBox.Text = file;
+            try
+            {
+                StreamReader reader = new StreamReader(@"./files.txt", Encoding.UTF8);
+                string file = reader.ReadToEnd();
+                fileNames = file.Split('\n');
+                Console.WriteLine("Load Complete");
+                fileBox.Text = file;
+                this.statusBox.Text = "Playlist loaded. Press play to start";
+            }
+            catch (FileNotFoundException f) {
+                this.statusBox.Text = "File Not Found. Make Sure its under this application folder and its named files.txt";
+            }
+            
+        }
+
+        private void OnWindowsClosing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            Application.Current.Shutdown();
         }
     }
 }
