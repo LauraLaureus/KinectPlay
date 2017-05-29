@@ -36,32 +36,44 @@ namespace KinectStudio
 
             using (KStudioClient client = KStudio.CreateClient()) {
 
+                
                 client.ConnectToService();
 
                 for (int f = 0; f < fileNames.Length; f++) {
 
 
                     string[] nameAndLoop = fileNames[f].Split(',');
+                    this.statusBox.Text = "Playing" + nameAndLoop[0];
+
+                    
                     KStudioPlayback playback = client.CreatePlayback(nameAndLoop[0]);
+
                     if (nameAndLoop.Length > 1) {
                         playback.LoopCount = (uint)Double.Parse(nameAndLoop[1]);
                     }
 
-                    this.statusBox.Text = "Playing" + nameAndLoop[0];
-
+                    
+       
                     playback.EndBehavior = KStudioPlaybackEndBehavior.Stop;
                     playback.Start();
 
                     while (playback.State == KStudioPlaybackState.Playing)
                     {
+                        this.statusBox.Text = "Playing " + nameAndLoop[0];
                         Thread.Sleep(500);
                     }
-                    Console.WriteLine("End" + fileNames[f]);
+                   
             
                 }
                
                 
             }
+        }
+
+        public void AsynPlay(object playback)
+        {
+            KStudioPlayback p = (KStudioPlayback)playback;
+
         }
 
         private void loadClick(object sender, RoutedEventArgs e)

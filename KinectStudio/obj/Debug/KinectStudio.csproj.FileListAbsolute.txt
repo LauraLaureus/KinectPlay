@@ -17,7 +17,6 @@ C:\Users\Laura\Documents\M.A.N.D.A.L.Aproject\CompilingTest\KinectStudio\KinectS
 C:\Users\Laura\Documents\KinectPlay\KinectStudio\bin\Debug\KinectStudio.exe.config
 C:\Users\Laura\Documents\KinectPlay\KinectStudio\obj\Debug\KinectStudio.exe
 C:\Users\Laura\Documents\KinectPlay\KinectStudio\obj\Debug\KinectStudio.pdb
-C:\Users\Laura\Documents\KinectPlay\KinectStudio\obj\Debug\KinectStudio.csprojResolveAssemblyReference.cache
 C:\Users\Laura\Documents\KinectPlay\KinectStudio\obj\Debug\MainWindow.g.cs
 C:\Users\Laura\Documents\KinectPlay\KinectStudio\obj\Debug\App.g.cs
 C:\Users\Laura\Documents\KinectPlay\KinectStudio\obj\Debug\KinectStudio_MarkupCompile.cache
