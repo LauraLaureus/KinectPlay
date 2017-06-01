@@ -24,6 +24,8 @@ namespace KinectStudio
     public partial class MainWindow : Window
     {
         string[] fileNames = null;
+        KStudioPlayback playback;
+
 
         public MainWindow()
         {
@@ -44,25 +46,42 @@ namespace KinectStudio
 
                     string[] nameAndLoop = fileNames[f].Split(',');
                     this.statusBox.Text = "Playing" + nameAndLoop[0];
-
                     
-                    KStudioPlayback playback = client.CreatePlayback(nameAndLoop[0]);
-
-                    if (nameAndLoop.Length > 1) {
-                        playback.LoopCount = (uint)Double.Parse(nameAndLoop[1]);
-                    }
-
+                    double loopCount = 0,timeSleept = 0;
                     
-       
-                    playback.EndBehavior = KStudioPlaybackEndBehavior.Stop;
-                    playback.Start();
-
-                    while (playback.State == KStudioPlaybackState.Playing)
+                    try
                     {
-                        this.statusBox.Text = "Playing " + nameAndLoop[0];
-                        Thread.Sleep(500);
+                        playback = client.CreatePlayback(nameAndLoop[0]);
+                        if (nameAndLoop.Length > 1)
+                        {
+                            loopCount = Double.Parse(nameAndLoop[1]);
+                        }
+                        else
+                            loopCount = 1;
+
+                        
+                        playback.LoopCount = (uint)loopCount;
+                        playback.EndBehavior = KStudioPlaybackEndBehavior.Stop;
+                        playback.Start();
+                       
+                        while (playback.State == KStudioPlaybackState.Playing)
+                        {
+                            Thread.Sleep(100);
+                            timeSleept += 100;
+                        }
+
+                        if (playback.State == KStudioPlaybackState.Stopped && timeSleept < playback.Duration.TotalMilliseconds * loopCount)
+                        {
+                            Console.WriteLine("It is stopped prematurely");
+                            f -= 1;
+                        }
+
                     }
-                   
+                    catch (ArgumentException a) {
+                        Console.Write(e.ToString());
+                        Application.Current.Shutdown();
+                    }
+
             
                 }
                
@@ -70,10 +89,11 @@ namespace KinectStudio
             }
         }
 
-        public void AsynPlay(object playback)
+        private void stateChagedHandler(object sender, EventArgs e)
         {
-            KStudioPlayback p = (KStudioPlayback)playback;
-
+            if (playback.State != KStudioPlaybackState.Playing) {
+                Console.Write(playback.State.ToString());
+            }
         }
 
         private void loadClick(object sender, RoutedEventArgs e)

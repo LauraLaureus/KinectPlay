@@ -30,3 +30,6 @@ C:\Users\Laura\Documents\KinectPlay\KinectStudio\obj\x64\Debug\MainWindow.baml
 C:\Users\Laura\Documents\KinectPlay\KinectStudio\obj\x64\Debug\KinectStudio.g.resources
 C:\Users\Laura\Documents\KinectPlay\KinectStudio\obj\x64\Debug\KinectStudio.Properties.Resources.resources
 C:\Users\Laura\Documents\KinectPlay\KinectStudio\obj\x64\Debug\KinectStudio.csproj.GenerateResource.Cache
+C:\Users\DECSAI\Documents\KinectPlay\KinectStudio\bin\x64\Debug\KinectStudio.exe.config
+C:\Users\DECSAI\Documents\KinectPlay\KinectStudio\obj\x64\Debug\KinectStudio.exe
+C:\Users\DECSAI\Documents\KinectPlay\KinectStudio\obj\x64\Debug\KinectStudio.pdb

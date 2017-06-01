@@ -1,0 +1,16 @@
+C:\Users\DECSAI\Documents\KinectPlay\KinectStudio\obj\x64\Debug\KinectPlay.csprojResolveAssemblyReference.cache
+C:\Users\DECSAI\Documents\KinectPlay\KinectStudio\obj\x64\Debug\MainWindow.g.cs
+C:\Users\DECSAI\Documents\KinectPlay\KinectStudio\obj\x64\Debug\App.g.cs
+C:\Users\DECSAI\Documents\KinectPlay\KinectStudio\obj\x64\Debug\KinectStudio_MarkupCompile.cache
+C:\Users\DECSAI\Documents\KinectPlay\KinectStudio\obj\x64\Debug\KinectStudio_MarkupCompile.lref
+C:\Users\DECSAI\Documents\KinectPlay\KinectStudio\obj\x64\Debug\KinectStudio.exe
+C:\Users\DECSAI\Documents\KinectPlay\KinectStudio\obj\x64\Debug\KinectStudio.pdb
+C:\Users\DECSAI\Documents\KinectPlay\KinectStudio\bin\x64\Debug\KinectStudio.exe.config
+C:\Users\DECSAI\Documents\KinectPlay\KinectStudio\bin\x64\Debug\KinectStudio.exe
+C:\Users\DECSAI\Documents\KinectPlay\KinectStudio\bin\x64\Debug\KinectStudio.pdb
+C:\Users\DECSAI\Documents\KinectPlay\KinectStudio\bin\x64\Debug\Microsoft.Kinect.Tools.dll
+C:\Users\DECSAI\Documents\KinectPlay\KinectStudio\bin\x64\Debug\Microsoft.Kinect.Tools.xml
+C:\Users\DECSAI\Documents\KinectPlay\KinectStudio\obj\x64\Debug\MainWindow.baml
+C:\Users\DECSAI\Documents\KinectPlay\KinectStudio\obj\x64\Debug\KinectStudio.g.resources
+C:\Users\DECSAI\Documents\KinectPlay\KinectStudio\obj\x64\Debug\KinectStudio.Properties.Resources.resources
+C:\Users\DECSAI\Documents\KinectPlay\KinectStudio\obj\x64\Debug\KinectPlay.csproj.GenerateResource.Cache
