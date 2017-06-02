@@ -29,26 +29,40 @@ namespace KinectStudio
 
         public MainWindow()
         {
+            
             InitializeComponent();          
         }
 
         private void OnClick(object sender, RoutedEventArgs e)
         {
-                      
 
-            using (KStudioClient client = KStudio.CreateClient()) {
+            Thread playThread = new Thread(new ThreadStart(Play));
+            playThread.Start();
+            
+        }
 
-                
+        private void UpdateTextBox(string text) {
+            this.statusBox.Text = text;
+        }
+
+        private void Play() {
+
+            using (KStudioClient client = KStudio.CreateClient())
+            {
+
+
                 client.ConnectToService();
 
-                for (int f = 0; f < fileNames.Length; f++) {
+
+                for (int f = 0; f < fileNames.Length; f++)
+                {
 
 
                     string[] nameAndLoop = fileNames[f].Split(',');
-                    this.statusBox.Text = "Playing" + nameAndLoop[0];
-                    
-                    double loopCount = 0,timeSleept = 0;
-                    
+                    Dispatcher.InvokeAsync(new Action(() => this.statusBox.Text = "Playing" + nameAndLoop[0]));
+
+                    double loopCount = 0, timeSleept = 0;
+
                     try
                     {
                         playback = client.CreatePlayback(nameAndLoop[0]);
@@ -59,11 +73,11 @@ namespace KinectStudio
                         else
                             loopCount = 1;
 
-                        
+
                         playback.LoopCount = (uint)loopCount;
                         playback.EndBehavior = KStudioPlaybackEndBehavior.Stop;
                         playback.Start();
-                       
+
                         while (playback.State == KStudioPlaybackState.Playing)
                         {
                             Thread.Sleep(100);
@@ -77,16 +91,18 @@ namespace KinectStudio
                         }
 
                     }
-                    catch (ArgumentException a) {
-                        Console.Write(e.ToString());
+                    catch (ArgumentException a)
+                    {
+                        Console.Write(a.ToString());
                         Application.Current.Shutdown();
                     }
 
-            
+
                 }
-               
-                
+
+
             }
+
         }
 
         private void stateChagedHandler(object sender, EventArgs e)
