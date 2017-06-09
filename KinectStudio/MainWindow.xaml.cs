@@ -84,8 +84,10 @@ namespace KinectStudio
                                 Thread.Sleep(100);
                                 timeSleept += 100;
                             }
-                            if ( playback != null && timeSleept < playback.Duration.TotalMilliseconds)
-                                MessageBox.Show("Due to an unknown failure the playback has stopped.");
+                        if (playback != null && timeSleept < playback.Duration.TotalMilliseconds) {
+                               MessageBox.Show("Due to an unknown failure the playback has stopped.");
+                            break;
+                        }
                         
 
                     }
