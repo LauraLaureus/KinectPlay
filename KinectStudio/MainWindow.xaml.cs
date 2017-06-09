@@ -25,7 +25,7 @@ namespace KinectStudio
     {
         string[] fileNames = null;
         KStudioPlayback playback;
-
+        Thread playThread;
 
         public MainWindow()
         {
@@ -36,7 +36,7 @@ namespace KinectStudio
         private void OnClick(object sender, RoutedEventArgs e)
         {
 
-            Thread playThread = new Thread(new ThreadStart(Play));
+            playThread = new Thread(new ThreadStart(Play));
             playThread.Start();
             
         }
@@ -56,7 +56,6 @@ namespace KinectStudio
 
                 for (int f = 0; f < fileNames.Length; f++)
                 {
-
 
                     string[] nameAndLoop = fileNames[f].Split(',');
                     Dispatcher.InvokeAsync(new Action(() => this.statusBox.Text = "Playing" + nameAndLoop[0]));
@@ -78,24 +77,21 @@ namespace KinectStudio
                             playback.LoopCount = (uint)loopCount;
                             playback.EndBehavior = KStudioPlaybackEndBehavior.Stop;
                             playback.Start();
+                        }
 
-
-                            while (playback.State == KStudioPlaybackState.Playing)
+                            while (playback != null && playback.State == KStudioPlaybackState.Playing)
                             {
                                 Thread.Sleep(100);
                                 timeSleept += 100;
                             }
-                            if (timeSleept < playback.Duration.TotalMilliseconds)
+                            if ( playback != null && timeSleept < playback.Duration.TotalMilliseconds)
                                 MessageBox.Show("Due to an unknown failure the playback has stopped.");
-                        }
+                        
 
                     }
-                    catch (ArgumentException a)
-                    {
-                        Console.Write(a.ToString());
-                        Application.Current.Shutdown();
+                    catch (ThreadAbortException t) {
+                        Console.WriteLine(t.ToString());
                     }
-
 
                 }
 
@@ -130,8 +126,26 @@ namespace KinectStudio
 
         private void OnWindowsClosing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-
+            if (playThread != null) {
+                playThread.Abort();
+                playThread = null;
+            }
+            
             Application.Current.Shutdown();
+        }
+
+        private void stopButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (playback != null) {
+
+                playback.Stop();
+                playback = null;
+            }
+
+            if (playThread != null) {
+                playThread.Abort();
+                playThread = null;
+            }
         }
     }
 }
