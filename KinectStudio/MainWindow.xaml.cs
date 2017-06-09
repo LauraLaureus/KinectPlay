@@ -73,21 +73,20 @@ namespace KinectStudio
                         else
                             loopCount = 1;
 
-
-                        playback.LoopCount = (uint)loopCount;
-                        playback.EndBehavior = KStudioPlaybackEndBehavior.Stop;
-                        playback.Start();
-
-                        while (playback.State == KStudioPlaybackState.Playing)
+                        lock (playback)
                         {
-                            Thread.Sleep(100);
-                            timeSleept += 100;
-                        }
+                            playback.LoopCount = (uint)loopCount;
+                            playback.EndBehavior = KStudioPlaybackEndBehavior.Stop;
+                            playback.Start();
 
-                        if (playback.State == KStudioPlaybackState.Stopped && timeSleept < playback.Duration.TotalMilliseconds * loopCount)
-                        {
-                            Console.WriteLine("It is stopped prematurely");
-                            f -= 1;
+
+                            while (playback.State == KStudioPlaybackState.Playing)
+                            {
+                                Thread.Sleep(100);
+                                timeSleept += 100;
+                            }
+                            if (timeSleept < playback.Duration.TotalMilliseconds)
+                                MessageBox.Show("Due to an unknown failure the playback has stopped.");
                         }
 
                     }
@@ -131,6 +130,7 @@ namespace KinectStudio
 
         private void OnWindowsClosing(object sender, System.ComponentModel.CancelEventArgs e)
         {
+
             Application.Current.Shutdown();
         }
     }
