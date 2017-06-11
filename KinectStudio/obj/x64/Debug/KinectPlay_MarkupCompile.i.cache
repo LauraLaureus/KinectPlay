@@ -1,11 +1,11 @@
-﻿KinectStudio
+﻿KinectPlay
 
 
 winexe
 C#
 .cs
 C:\Users\Laura\Documents\KinectPlay\KinectStudio\obj\x64\Debug\
-KinectStudio
+KinectPlay
 none
 false
 DEBUG;TRACE
@@ -16,5 +16,5 @@ C:\Users\Laura\Documents\KinectPlay\KinectStudio\App.xaml
 142074401632
 MainWindow.xaml;
 
-True
+False
 
